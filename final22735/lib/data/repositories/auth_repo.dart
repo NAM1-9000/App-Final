@@ -5,7 +5,6 @@ class AuthRepository {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // sign up
   Future<UserCredential> emailPasswordSignUp(
       String email, String password, String name, String number) async {
     try {
@@ -24,7 +23,6 @@ class AuthRepository {
     }
   }
 
-  // sign in
   Future<UserCredential> emailPasswordSignIn(
       String email, String password) async {
     try {
@@ -36,7 +34,6 @@ class AuthRepository {
     }
   }
 
-  // sign out
   Future<void> emailPasswordSignOut() async {
     try {
       await _firebaseAuth.signOut();

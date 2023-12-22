@@ -1,4 +1,4 @@
-import 'package:final22735/presentation/screens/test.dart';
+import 'package:final22735/presentation/screens/q2_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
@@ -8,9 +8,9 @@ void main() {
     await loadAppFonts();
   });
 
-  testGoldens('', (tester) async {
+  testGoldens('Q2UI Test', (tester) async {
     const widget = MaterialApp(
-      home: TestScreen(),
+      home: Q2UI(),
     );
 
     await tester.pumpWidgetBuilder(
@@ -18,6 +18,6 @@ void main() {
       surfaceSize: const Size(500, 1000),
     );
 
-    await screenMatchesGolden(tester, 'Test Screen');
+    await screenMatchesGolden(tester, 'Q2UI Screenshot');
   });
 }

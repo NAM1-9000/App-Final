@@ -1,9 +1,8 @@
 import 'package:final22735/business%20logic/cubits/auth/auth_cubit.dart';
+import 'package:final22735/business%20logic/cubits/data_cubit.dart';
 import 'package:final22735/firebase_options.dart';
-import 'package:final22735/presentation/screens/home.dart';
-import 'package:final22735/presentation/screens/sign_in.dart';
-import 'package:final22735/presentation/screens/sign_up.dart';
-import 'package:final22735/presentation/screens/splash_screen.dart';
+import 'package:final22735/presentation/screens/q1.dart';
+import 'package:final22735/presentation/screens/q2_ui.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +21,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => AuthCubit()),
+        BlocProvider(
+          create: (context) => DataCubit(),
+          child: MyApp(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -31,12 +33,10 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        initialRoute: '/splashScreen',
+        initialRoute: '/',
         routes: {
-          '/splashScreen': (context) => const SplashScreen(),
-          '/signInScreen': (context) => const SignInScreen(),
-          '/signUpScreen': (context) => const SignUpScreen(),
-          '/homeScreen': (context) => const HomeScreen(),
+          '/q2ui': (context) => const Q2UI(),
+          '/q1': (context) => const Q1(),
         },
       ),
     );
